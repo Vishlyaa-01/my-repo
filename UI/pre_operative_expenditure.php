@@ -173,17 +173,30 @@
 
             ?>
             <tr>
-            <form method="POST">
-                <td><input type="text" name="registration_and_licenses" value="<?php echo $row['registration_and_licenses']; ?>"></td>
-                <td><input type="text" name="issuing_authority" value="<?php echo $row['issuing_authority']; ?>"></td>
-                <td><input type="number" step="0.0001" name="approximate_cost" value="<?php echo $row['approximate_cost_in_rupees']; ?>"></td>
-                <td>
-                    <button type="submit" name="update" class="btn btn-edit">Edit</button>
-                    <a href="?delete=<?php echo $row['sr_no']; ?>" 
-                    onclick="return confirm('Are you sure?')" 
-                    class="btn btn-delete">Delete</a>
-                </td>
-            </form>
+                <form method="POST">
+                    <td>
+                        <input type="hidden" name="id" value="<?php echo $row['sr_no']; ?>">
+                        <input type="text" name="registration_and_licenses" 
+                        value="<?php echo $row['registration_and_licenses']; ?>">
+                    </td>
+
+                    <td>
+                        <input type="text" name="issuing_authority" 
+                        value="<?php echo $row['issuing_authority']; ?>">
+                    </td>
+
+                    <td>
+                        <input type="number" step="0.01" name="approximate_cost" 
+                        value="<?php echo $row['approximate_cost_in_rupees']; ?>">
+                    </td>
+
+                    <td>
+                        <button type="submit" name="update" class="btn btn-edit">Edit</button>
+                        <a href="?delete=<?php echo $row['sr_no']; ?>" 
+                        onclick="return confirm('Are you sure?')" 
+                        class="btn btn-delete">Delete</a>
+                    </td>
+                </form>
             </tr>
             <?php } ?>
 
